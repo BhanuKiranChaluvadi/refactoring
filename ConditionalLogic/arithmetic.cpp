@@ -82,7 +82,7 @@ public:
 Node* left;
 Node* right;
 };
-
+    
 class additionNode : public OperatorNode {
 double evaluate() override {
   return left->evaluate() + right->evaluate();
