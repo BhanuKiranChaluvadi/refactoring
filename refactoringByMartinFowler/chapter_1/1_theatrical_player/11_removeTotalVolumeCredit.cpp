@@ -1,13 +1,9 @@
 /*
- * As we suggested before, temporary variables can be a problem.
- * They are only useful with in their own routine, and therefore 
- * they encourage long, complex routine. 
+ * Removing Total volume credit
+ * "volumeCredits" how ? It build up during the iteration of the loop.
+ * 1. splitup the loop to separate the accumulation of the variable
+ * 2. slide statement "volumeCredits" decleration above the for loop.
  * 
- * Replace "format" variable. -- assign a function to a temp.
- * 
- * Naming is both important and tricky. Breaking a large function into
- * small ones only adds value if the names are good. With the good names
- * i dont have to read the body of the function to see what it does. 
  */
 
 #include <iostream>
@@ -20,22 +16,24 @@ using namespace std;
 
 void statement(auto invoice, auto plays) {
 	double totalAmount = 0;
-	double volumeCredits = 0;
 	std::ostringstream result;
 	result << "Statement for " << invoice.customer << "\n";
 	for(auto & perf : invoice.performace){
-
-    volumeCredits += volumeCreditsFor(perf);
 		// print line for this order
 		result << playFor(perf).name << " : " << "$" << usd(amountFor(perf)/100) << "  (" << perf.audience << " seats )\n";
 		totalAmount += amountFor(perf);
-	}							
+	}
+	double volumeCredits = 0;
+	for(auto & perf : invoice.performace){
+		volumeCredits += volumeCreditsFor(perf);
+	}
+
 	result << "Amount owed is $" << usd(totalAmount/100) << "\n";
 	result << "you earned $" << volumeCredits << "\n";
 	std::cout << result.str();
 }
 
-auto usd(aNumber){   // format
+auto usd(double aNumber){   // format
     return new Intl.NumberFormat(
 										"en-US", 
 									{
@@ -72,12 +70,12 @@ double amountFor(auto aPerformance) {
 
 double volumeCreditsFor(auto aPerformance) {
 	// add volume credits
-    double result = 0;
+  double result = 0;
 	result += max(aPerformance.audience - 30, 0);
 	// add extra credit for every 10 comedy attendees
 	if ("comedy" == playFor(aPerformance).type) {
 		result += floor(aPerformance.audience / 5);
 	}
-    return result;
+  return result;
 }
 
