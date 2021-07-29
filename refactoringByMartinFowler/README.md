@@ -16,7 +16,7 @@
 <ol>
    <li> </li>
    <li> </li> 
-<ol>
+</ol>
 
 ## Extract a function
   
@@ -28,20 +28,22 @@
   <li> After Extraction of function, take a look at what we have extracted to see if there are any quick and easy things we can do to clarifyt eh extracted function.</li>
 <ol>
   
- ### Rename Varibles
+   
+### Rename Varibles
   Rename some varibles to make them clear
 <ol>
    <li> First argument rename (aPerformace)</li>
    <li> Second arguement rename if needed </li> 
    <li> Any other variables in the code  </li> 
-<ol> 
+</ol> 
   
- ### Look at passed Arguments
+### Look at passed Arguments
   Look into passed arguements where they come from. 
 <ol>
    <li> Are all arguments independent OR Is one arguments is computed from another ? </li>
    <li> If arguments are dependent. Then we dont need to pass all of them. Just caluculate inside the function </li> 
-<ol>
-  
+</ol>
+ 
+
   
  
