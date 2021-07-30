@@ -89,6 +89,14 @@ The great benifit of removing a local variable is that it makes it much easier t
    <li> Inline variable - to remove the variable completely. </li> 
 </ol>
  
- 
+## Splitting the Phases of Calcaulation and Formatting
+So far refactoring has focused on adding enough structure to the function so that we can understand it and see its logical parts.
+  Now we can focus more on the fnuctionality change - providing HTML version of the text statement.
+   We dont want to copy paste the statement function and change the layout to fit HTML and perform the same calculations. We want to use the same calcualted results both in HTML and text statement version. And hence split phase, divide the logic into two parts 
+   <ol>
+   <li> One that calculate the data required for the statement </li>
+   <li> Other renders the data into HTML and text version </li>  
+</ol>
    
- 
+   
+ ## Replace conditions with Polymorphism
