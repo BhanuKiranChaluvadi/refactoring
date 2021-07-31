@@ -1,5 +1,8 @@
 
 
+As often the case with refactoring. the early stages were mostly driven by inderstanding what was going on. A common sequence is: Read the code, gain some insight, an use the refacting to move that insight from your head back into the code. The clearer code makes it easier to understand it, leading to deeper insights and a benificial ppositive feed back loop.
+
+
 <ul>
 <li> Move a field from one class on another.</li>
 <li> Pull some code out of the class to make it into its own method.</li>
